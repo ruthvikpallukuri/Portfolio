@@ -5,109 +5,526 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ruthvik Pallukuri | AWS Portfolio</title>
+
+  <meta
+    name="description"
+    content="Ruthvik Pallukuri's portfolio showcasing AWS, cloud networking, serverless projects, and campus networking experience."
+  >
+
   <link rel="stylesheet" href="style.css">
- 
+  <script src="app.js" defer></script>
 </head>
 
 <body>
+  <!-- HEADER AND NAVIGATION -->
   <header>
-    <h1>Ruthvik Pallukuri</h1>
-    <p>Aspiring Cloud Network Engineer</p>
-     <div class="resume-links">
-  <a
-    href="Ruthvik_Pallukuri_Resume.pdf"
-    target="_blank"
-    rel="noopener"
-  >
-    View Resume
-  </a>
+    <div class="topbar">
+      <a class="brand" href="#" aria-label="Ruthvik Pallukuri home">
+        rp<span>.</span>
+      </a>
 
-  <a href="Ruthvik_Pallukuri_Resume.pdf" download>
-    Download Resume
-  </a>
-</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-    </nav>
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button id="theme-toggle" type="button" aria-pressed="false">
+        Switch to light mode
+      </button>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AWS &amp; CLOUD NETWORKING</p>
+
+        <h1>
+          Building in the cloud.<br>
+          <span>Learning by doing.</span>
+        </h1>
+
+        <p class="intro">
+          I’m Ruthvik Pallukuri. I bring a background in cybersecurity,
+          networking, and design to hands-on cloud engineering.
+        </p>
+
+        <a class="primary-link" href="#projects">
+          Explore my projects ↘
+        </a>
+
+        <div class="resume-links">
+          <a
+            href="Ruthvik_Pallukuri_Resume.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            View Resume ↗
+          </a>
+
+          <a href="Ruthvik_Pallukuri_Resume.pdf" download>
+            Download Resume ↓
+          </a>
+        </div>
+
+        <p class="hero-note">
+          Aspiring Cloud Network Engineer · Pittsburgh, PA
+        </p>
+      </div>
+
+      <!-- NOTIFICATION ARCHITECTURE -->
+      <aside class="blueprint" aria-label="Notification architecture">
+        <div class="blueprint-heading">
+          <span>ARCHITECTURE / 001</span>
+          <span>EVENT-DRIVEN</span>
+        </div>
+
+        <ol class="architecture-flow">
+          <li>
+            <div class="service-node">
+              <span class="service-symbol" aria-hidden="true">◎</span>
+              <div>
+                <small>01 / PUBLISH</small>
+                <strong>Amazon SNS</strong>
+              </div>
+            </div>
+
+            <p class="flow-label">↓ Assignment event</p>
+          </li>
+
+          <li>
+            <div class="service-node highlighted">
+              <span class="service-symbol" aria-hidden="true">λ</span>
+              <div>
+                <small>02 / PROCESS</small>
+                <strong>Notification Lambda</strong>
+              </div>
+            </div>
+
+            <p class="flow-label">↓ Email request</p>
+          </li>
+
+          <li>
+            <div class="service-node">
+              <span class="service-symbol" aria-hidden="true">✉</span>
+              <div>
+                <small>03 / DELIVER</small>
+                <strong>Amazon SES</strong>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="blueprint-footer">
+          <span>Shared Task Notifications</span>
+          <span>us-east-2</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="focus-strip" aria-label="Areas of focus">
+      <span>NETWORKING</span>
+      <span>SECURITY</span>
+      <span>SERVERLESS</span>
+      <span>AUTOMATION</span>
+    </div>
   </header>
 
   <main>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="projects-heading">
+        <div>
+          <p class="eyebrow">THE WORK</p>
+          <h2>
+            Projects &amp; explorations<span class="accent">.</span>
+          </h2>
+        </div>
+
+        <p class="projects-subtitle">
+          Practical problems. Hands-on learning.
+        </p>
+      </div>
+
+      <!-- PROJECT FILTERS -->
+      <div
+        class="project-filters"
+        role="group"
+        aria-label="Filter projects"
+      >
+        <button type="button" data-filter="all" aria-pressed="true">
+          All projects
+        </button>
+
+        <button
+          type="button"
+          data-filter="serverless"
+          aria-pressed="false"
+        >
+          Serverless
+        </button>
+
+        <button
+          type="button"
+          data-filter="networking"
+          aria-pressed="false"
+        >
+          Networking
+        </button>
+
+        <button
+          type="button"
+          data-filter="hosting"
+          aria-pressed="false"
+        >
+          Website hosting
+        </button>
+      </div>
+
+      <p id="project-count" role="status">Showing 3 projects</p>
+
+      <div class="project-grid">
+        <!-- FEATURED PROJECT -->
+        <article class="featured-project" data-category="serverless">
+          <!-- Left panel -->
+          <div class="featured-visual">
+            <div class="featured-topline">
+              <span class="project-number">01 / SERVERLESS</span>
+              <span class="featured-status">In progress</span>
+            </div>
+
+            <div
+              class="task-diagram"
+              role="img"
+              aria-label="Conceptual task workflow: save the task in DynamoDB and notify the assignee through SNS, Lambda, and SES."
+            >
+              <div class="task-source">
+                Task assignment
+              </div>
+
+              <div class="task-connector" aria-hidden="true"></div>
+
+              <div class="task-branches">
+                <div class="task-branch">
+                  <span>Save task</span>
+                  <strong>DynamoDB</strong>
+                </div>
+
+                <div class="task-branch">
+                  <span>Notify assignee</span>
+                  <strong>SNS → Lambda → SES</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="design-goal">
+              <p>DESIGN GOAL</p>
+
+              <h3>
+                A saved task stays saved.<br>
+                Even when email fails.
+              </h3>
+            </div>
+          </div>
+
+          <!-- Right panel -->
+          <div class="featured-content">
+            <p class="eyebrow">FEATURED · TEAM PROJECT</p>
+
+            <h3 class="featured-title">
+              Shared Task<br>
+              Notifications
+            </h3>
+
+            <p class="featured-description">
+              A task management application that notifies assignees
+              by email. My focus: the notification services and
+              coordinating our team’s delivery.
+            </p>
+
+            <div class="service-tags">
+              <span>SNS</span>
+              <span>Lambda</span>
+              <span>SES</span>
+              <span>SQS</span>
+            </div>
+
+            <details class="featured-details">
+              <summary>
+                Explore the project
+                <span class="expand-icon" aria-hidden="true"></span>
+              </summary>
+
+              <div class="featured-details-body">
+                <h4>My contribution</h4>
+
+                <p>
+                  Project manager and owner of SNS, Notification
+                  Lambda, and SES. Configured the notification
+                  flow and tested email delivery.
+                </p>
+
+                <h4>What I worked on</h4>
+
+                <ul>
+                  <li>Configuring the SNS topic and Lambda trigger.</li>
+                  <li>Processing assignment notifications with Python.</li>
+                  <li>Configuring SES identities and email permissions.</li>
+                  <li>
+                    Troubleshooting email delivery using CloudWatch logs.
+                  </li>
+                  <li>
+                    Setting up SQS failure queues for further testing.
+                  </li>
+                </ul>
+
+                <h4>Reliability goal</h4>
+
+                <p>
+                  Keep task storage separate from email delivery
+                  so a notification failure does not undo a saved task.
+                </p>
+
+                <a
+                  href="https://github.com/ChristopherMedrano/aws-restart-group-project"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  View team repository ↗
+                </a>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- NETWORKING PROJECT -->
+        <article data-category="networking">
+          <span class="project-status">
+            Campus networking experience
+          </span>
+
+          <h3>Campus Network Configuration</h3>
+
+          <p>
+            Deployed and configured routers, switches, VLANs,
+            and wireless access points to support campus
+            connectivity and availability.
+          </p>
+
+          <div class="service-tags">
+            <span>Subnetting</span>
+            <span>VLANs</span>
+            <span>Routing</span>
+            <span>Switching</span>
+            <span>Wireless</span>
+            <span>Troubleshooting</span>
+          </div>
+
+          <details>
+            <summary>Explore my networking work</summary>
+
+            <ul>
+              <li>
+                <strong>IP addressing and subnetting:</strong>
+                Configured IP addresses, subnet masks, and default
+                gateways to organize devices into separate
+                network segments.
+              </li>
+
+              <li>
+                <strong>VLAN configuration:</strong>
+                Created VLANs and assigned switch access ports
+                to segment traffic for different device groups.
+              </li>
+
+              <li>
+                <strong>Switch configuration:</strong>
+                Configured trunk links to carry multiple VLANs
+                between network devices and verified VLAN membership.
+              </li>
+
+              <li>
+                <strong>Router configuration:</strong>
+                Configured network interfaces and routing settings
+                to support communication between subnets.
+              </li>
+
+              <li>
+                <strong>Wireless connectivity:</strong>
+                Deployed and configured wireless access points
+                and verified client access to the campus network.
+              </li>
+
+              <li>
+                <strong>Validation and troubleshooting:</strong>
+                Used ping, traceroute, and Wireshark to investigate
+                connectivity problems and verify network traffic.
+              </li>
+            </ul>
+          </details>
+        </article>
+
+        <!-- PORTFOLIO PROJECT -->
+        <article data-category="hosting">
+          <span class="project-status">Building locally</span>
+
+          <h3>AWS Portfolio Website</h3>
+
+          <p>
+            My personal website showcasing cloud projects,
+            technical skills, and my resume.
+          </p>
+
+          <div class="service-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>GitHub</span>
+          </div>
+
+          <details>
+            <summary>Explore the build</summary>
+
+            <p>
+              I’m building the website in VS Code and tracking
+              changes with Git and GitHub.
+            </p>
+
+            <p>
+              Interactive features include a light/dark theme
+              switch, project filters, and expandable project details.
+            </p>
+
+            <p>
+              Planned AWS deployment: use Amazon S3 and CloudFront
+              to host and deliver the website.
+            </p>
+
+            <a
+              href="https://github.com/ruthvikpallukuri/Portfolio"
+              target="_blank"
+              rel="noopener"
+            >
+              View source on GitHub ↗
+            </a>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
     <section id="about">
-      <h2>About Me</h2>
+      <p class="eyebrow">BEHIND THE PROJECTS</p>
+      <h2>A technical mindset. A creative perspective.</h2>
+
       <p>
-        I’m a Cybersecurity graduate from Robert Morris University
-        and an AWS re/Start learner at Per Scholas.
+        I’m Ruthvik Pallukuri, a Cybersecurity graduate from
+        Robert Morris University and an AWS re/Start learner
+        at Per Scholas.
+      </p>
+
+      <p>
+        My background spans networking and visual design.
         I’m developing hands-on skills in cloud infrastructure,
-        networking, security, and troubleshooting.
+        security, monitoring, and troubleshooting.
+      </p>
+
+      <p>
+        My goal is to become a Cloud Network Engineer who can
+        design, secure, monitor, and scale reliable cloud environments.
       </p>
     </section>
 
-    <section id="projects">
-      <h2>My AWS Projects</h2>
-
-      <article>
-        <h3>Shared Task Notifications</h3>
-        <p>
-          A team project that assigns tasks and notifies assignees
-          by email. My role focuses on SNS, Notification Lambda,
-          and SES.
-        </p>
-        <p><strong>Status:</strong> In progress</p>
-        <p><strong>Services:</strong> SNS, Lambda, SES, SQS</p>
-      </article>
-
-      <article>
-        <h3>AWS Portfolio Website</h3>
-        <p>
-          My personal portfolio website, which I’m building with
-          HTML, CSS, and JavaScript and plan to host using
-          Amazon S3 and CloudFront.
-        </p>
-        <p><strong>Status:</strong> Building locally</p>
-      </article>
-    </section>
-
+    <!-- SKILLS -->
     <section id="skills">
-      <h2>Skills I’m Developing</h2>
+      <p class="eyebrow">MY TOOLKIT</p>
+      <h2>What I’m working with<span class="accent">.</span></h2>
 
-      <ul>
-        <li>AWS cloud infrastructure</li>
-        <li>VPC networking and security groups</li>
-        <li>Linux and troubleshooting</li>
-        <li>Python and serverless applications</li>
-        <li>Git and GitHub</li>
-      </ul>
+      <div class="skill-grid">
+        <div class="skill-group">
+          <span class="skill-number">01</span>
+
+          <h3>Cloud &amp; networking</h3>
+
+          <p>
+            VPC · Subnets · Route tables<br>
+            EC2 · S3 · CloudFront<br>
+            VLANs · Routing · Switching<br>
+            Security groups · DNS
+          </p>
+        </div>
+
+        <div class="skill-group">
+          <span class="skill-number">02</span>
+
+          <h3>Serverless &amp; security</h3>
+
+          <p>
+            Lambda · SNS · SES · SQS<br>
+            IAM permissions<br>
+            CloudWatch troubleshooting
+          </p>
+        </div>
+
+        <div class="skill-group">
+          <span class="skill-number">03</span>
+
+          <h3>Tools &amp; foundations</h3>
+
+          <p>
+            Linux · AWS CLI · Python<br>
+            Git · GitHub<br>
+            Wireshark · SQL
+          </p>
+        </div>
+      </div>
     </section>
-<section id="contact">
-  <h2>Connect With Me</h2>
-  <p>
-    Explore my code on GitHub or connect with me on LinkedIn.
-  </p>
 
-  <div class="resume-links">
-    <a
-      href="https://github.com/YOUR-GITHUB-USERNAME"
-      target="_blank"
-      rel="noopener"
-    >
-      GitHub
-    </a>
+    <!-- CONTACT -->
+    <section id="contact">
+      <p class="eyebrow">LET’S CONNECT</p>
+      <h2>Connect With Me</h2>
 
-    <a
-      href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID/"
-      target="_blank"
-      rel="noopener"
-    >
-      LinkedIn
-    </a>
-  </div>
-</section>  
-</main>
+      <p>
+        Explore my projects on GitHub or connect with me on LinkedIn.
+      </p>
 
+      <div class="resume-links">
+        <a href="tel:+13125661408">
+          Call Me: +1 (312) 566-1408
+        </a>
+
+        <a
+          href="https://github.com/ruthvikpallukuri"
+          target="_blank"
+          rel="noopener"
+        >
+          GitHub ↗
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/ruthvikpallukuri"
+          target="_blank"
+          rel="noopener"
+        >
+          LinkedIn ↗
+        </a>
+
+        <a
+          href="https://github.com/ruthvikpallukuri/Portfolio"
+          target="_blank"
+          rel="noopener"
+        >
+          Portfolio Repository ↗
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer>
-    <p>Ruthvik Pallukuri — AWS Portfolio</p>
+    <p>Ruthvik Pallukuri — Cloud &amp; Networking Portfolio</p>
   </footer>
 </body>
 </html>
